@@ -19,7 +19,7 @@ int main()
 {
 	Circle circle1, circle2;
 
-	circle1.setRadius(2);
+	circle1.setRadius(1);
 	circle2.setRadius(2.5);
 
 	cout << "The radius of circle 1 is" << circle1.calcArea() << endl;

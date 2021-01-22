@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <array>
 using namespace std;
 
 class Achievements
@@ -50,6 +51,7 @@ private:
 	string m_name;
 	string m_publisher;
 	string m_developer;
+	int m_pAsize;
 	Achievements* m_pAchievements;
 public:
 	Games()
@@ -57,14 +59,16 @@ public:
 		m_name = "";
 		m_publisher = "";
 		m_developer = "";
-		m_pAchievements;
+		m_pAsize = 0;
+		//m_pAchievements;
 	}
-	Games(string name, string publisher, string developer, Achievements* achievements)
+	Games(string name, string publisher, string developer, int size)
 	{
 		m_name = name;
 		m_publisher = publisher;
 		m_developer = developer;
-		m_pAchievements = achievements;
+		m_pAsize = size;
+		//m_pAchievements = achievements;
 	}
 
 	void setName(string name) {
@@ -88,12 +92,50 @@ public:
 		return m_developer;
 	}
 
-	void setAchievements(Achievements* achievements) {
-		m_pAchievements = achievements;
+	void setAsize(int size){
+		m_pAsize = size;
 	}
-	Achievements* getAchievements() {
-		return m_pAchievements;
+
+	//void setAchievements(Achievements* achievements) {
+	//	m_pAchievements = achievements;
+	//}
+	//Achievements* getAchievements() {
+	//	return m_pAchievements;
+	//}
+
+	void imputAchievement()
+	{
+		
+		m_pAchievements = new Achievements[m_pAsize];
+
+		for (int i = 0; i < m_pAsize; ++i)
+		{
+			string title, descr;
+			int score;
+
+			cout << "input title" << endl;
+			cin >> title;
+			cout << "input descr" << endl;
+			cin >> descr;
+			cout << "input score" << endl;
+			cin >> score;
+			
+			m_pAchievements[m_pAsize].setTitle(title);
+			m_pAchievements[m_pAsize].setDescription(descr);
+			m_pAchievements[m_pAsize].setScore(score);
+		}
 	}
+
+	void dislayAchievementa()
+{
+		m_pAchievements = new Achievements[m_pAsize];
+
+		for (int i = 0; i < m_pAsize; ++i)
+		{
+			m_pAchievements[m_pAsize].getTitle();
+		}
+}
+	
 };
 
 
@@ -137,15 +179,26 @@ public:
 
 int main()
 {
-	/*int kSize;*/
+	const size_t kSize = 5;
+	
+	Games* Ps5games[kSize];
+	Ps5games[0] = new Games("Game 1", "P 1", "D 1", 0);
+	Ps5games[1] = new Games("Game 2", "P 2", "D 2", 0);
+	Ps5games[2] = new Games("Game 3", "P 3", "D 3", 0);
+	Ps5games[3] = new Games("Game 4", "P 4", "D 4", 0);
+	Ps5games[4] = new Games("Game 5", "P 5", "D 5", 0);
 
-	//Games* ps5GamesArray[5];
-	Achievements* Clear = new Achievements("All Clear", "Clear All", 100);
-	Achievements* Clear2 = new Achievements("All Clear", "Clear All", 100);
-	Games* P5 = new Games("Persona 5", "Atlus", "Nose",Clear);
+	cout << "how many achiev" << endl;
+	int s;
+	cin >> s;
+	Ps5games[0]->setAsize(s);
 
-	cout << P5->getName();
-	cout << P5->getAchievements()->getTitle();
+	cout << "creating achievements" << endl;
+	Ps5games[0]->imputAchievement();
+
+	cout << "displaying achievements" << endl;
+	Ps5games[0]->dislayAchievementa();
+	
 
 		return 0;
 }

@@ -59,15 +59,15 @@ public:
 		m_name = "";
 		m_publisher = "";
 		m_developer = "";
-		m_pAsize = 0;
+		//m_pAsize = 0;
 		//m_pAchievements;
 	}
-	Games(string name, string publisher, string developer, int size)
+	Games(string name, string publisher, string developer/*, int size*/)
 	{
 		m_name = name;
 		m_publisher = publisher;
 		m_developer = developer;
-		m_pAsize = size;
+		//m_pAsize = size;
 		//m_pAchievements = achievements;
 	}
 
@@ -110,29 +110,31 @@ public:
 
 		for (int i = 0; i < m_pAsize; ++i)
 		{
-			string title, descr;
+			string title;
+			string descr;
 			int score;
 
 			cout << "input title" << endl;
 			cin >> title;
-			cout << "input descr" << endl;
+			m_pAchievements[i].setTitle(title);
+			
+			cout << "input description" << endl;
 			cin >> descr;
+			m_pAchievements[i].setDescription(descr);
+			
 			cout << "input score" << endl;
 			cin >> score;
-			
-			m_pAchievements[m_pAsize].setTitle(title);
-			m_pAchievements[m_pAsize].setDescription(descr);
-			m_pAchievements[m_pAsize].setScore(score);
+			m_pAchievements[i].setScore(score);
+
 		}
 	}
 
 	void dislayAchievementa()
 {
-		m_pAchievements = new Achievements[m_pAsize];
 
 		for (int i = 0; i < m_pAsize; ++i)
 		{
-			m_pAchievements[m_pAsize].getTitle();
+			cout<< m_pAchievements[i].getTitle();
 		}
 }
 	
@@ -179,16 +181,16 @@ public:
 
 int main()
 {
-	const size_t kSize = 5;
+	const size_t kSize = 6;
 	
 	Games* Ps5games[kSize];
-	Ps5games[0] = new Games("Game 1", "P 1", "D 1", 0);
-	Ps5games[1] = new Games("Game 2", "P 2", "D 2", 0);
-	Ps5games[2] = new Games("Game 3", "P 3", "D 3", 0);
-	Ps5games[3] = new Games("Game 4", "P 4", "D 4", 0);
-	Ps5games[4] = new Games("Game 5", "P 5", "D 5", 0);
+	Ps5games[0] = new Games("Game 1", "P 1", "D 1");
+	Ps5games[1] = new Games("Game 2", "P 2", "D 2");
+	Ps5games[2] = new Games("Game 3", "P 3", "D 3");
+	Ps5games[3] = new Games("Game 4", "P 4", "D 4");
+	Ps5games[4] = new Games("Game 5", "P 5", "D 5");
 
-	cout << "how many achiev" << endl;
+	cout << "how many achieves" << endl;
 	int s;
 	cin >> s;
 	Ps5games[0]->setAsize(s);

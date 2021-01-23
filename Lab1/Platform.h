@@ -15,48 +15,27 @@ private:
 	string m_manufacturer;
 
 public:
-	int m_pSize;
 	Games m_games[5];
+	int m_pSize;
+	
 	Platform()
 	{
 		m_name = "";
 		m_manufacturer = "";
 	}
 
-	Platform(string name, string manufacturer)
-	{
-		m_name = name;
-		m_manufacturer = manufacturer;
-	}
+	Platform(string name, string manufacturer);
 
-	void setName(string name) {
-		m_name = name;
-	}
-	string getName() {
-		return m_name;
-	}
 
-	void setManufacturer(string manufacturer) {
-		m_manufacturer = manufacturer;
-	}
-	string getManufacturer() {
-		return m_manufacturer;
-	}
+	void setName(string name); 
+	string getName();
 
-	void setGames(string name, string p, string f, int i)
-	{
-		m_games[i].setName(name);
-		m_games[i].setPublisher(p);
-		m_games[i].setDeveloper(f);
-	}
+	void setManufacturer(string manufacturer);
+	string getManufacturer();
 
-	void displayGames()
-	{
-		for (int i = 0; i < 5; ++i)
-		{
-			cout << i << "= Name:" << m_games[i].getName() << endl << "Developer: " << m_games[i].getDeveloper() << endl << "Publisher: " << m_games[i].getPublisher() << endl << endl;
-		}
-	}
+	void setGames(string name, string p, string f, int i);
+	void displayGames();
+
 };
 
 #endif

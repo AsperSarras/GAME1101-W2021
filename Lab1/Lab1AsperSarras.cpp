@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <array>
 using namespace std;
 
 class Achievements
@@ -59,16 +58,12 @@ public:
 		m_name = "";
 		m_publisher = "";
 		m_developer = "";
-		//m_pAsize = 0;
-		//m_pAchievements;
 	}
-	Games(string name, string publisher, string developer/*, int size*/)
+	Games(string name, string publisher, string developer)
 	{
 		m_name = name;
 		m_publisher = publisher;
 		m_developer = developer;
-		//m_pAsize = size;
-		//m_pAchievements = achievements;
 	}
 
 	void setName(string name) {
@@ -96,14 +91,7 @@ public:
 		m_pAsize = size;
 	}
 
-	//void setAchievements(Achievements* achievements) {
-	//	m_pAchievements = achievements;
-	//}
-	//Achievements* getAchievements() {
-	//	return m_pAchievements;
-	//}
-
-	void imputAchievement()
+	void inputAchievement()
 	{
 		
 		m_pAchievements = new Achievements[m_pAsize];
@@ -111,55 +99,55 @@ public:
 		for (int i = 0; i < m_pAsize; ++i)
 		{
 			string title;
-			string descr;
+			string description;
 			int score;
 
-			cout << "input title" << endl;
+			cout << "Input a title for the achievement" << endl;
 			cin >> title;
 			m_pAchievements[i].setTitle(title);
 			
-			cout << "input description" << endl;
-			cin >> descr;
-			m_pAchievements[i].setDescription(descr);
+			cout << "Input a description for the achievement" << endl;
+			cin >> description;
+			m_pAchievements[i].setDescription(description);
 			
-			cout << "input score" << endl;
+			cout << "Input a score value for the achievement" << endl;
 			cin >> score;
 			m_pAchievements[i].setScore(score);
-
 		}
 	}
 
-	void dislayAchievementa()
+	void dislayAchievement()
 {
-
 		for (int i = 0; i < m_pAsize; ++i)
 		{
-			cout<< m_pAchievements[i].getTitle();
+			cout << m_pAchievements[i].getTitle() <<endl<< m_pAchievements[i].getDescription()<< endl<< m_pAchievements[i].getScore()<<endl<<endl;
 		}
 }
 	
 };
-
 
 class Platform
 {
 private:
 	string m_name;
 	string m_manufacturer;
-	Games* m_pGames;
+	
+	/*int m_pGsize = 5;*/
 public:
-	Platform() 
+	int m_pSize;
+	Games m_games[5];
+	Platform()
 	{
 		m_name = "";
 		m_manufacturer = "";
-		m_pGames;
+		//m_pGames[] = nullptr;
 	}
 
-	Platform(string name, string manufacturer,Games* games)
+	Platform(string name, string manufacturer/*, Games* games*/)
 	{
 		m_name = name;
 		m_manufacturer = manufacturer;
-		m_pGames = games;
+		//m_pGames = games;
 	}
 
 	void setName(string name) {
@@ -176,31 +164,131 @@ public:
 		return m_manufacturer;
 	}
 
+	void setGames(string name,string p,string f,int i)
+	{
+		m_games[i].setName(name);
+		m_games[i].setPublisher(p);
+		m_games[i].setDeveloper(f);
+	}
+
+	void displayGames()
+	{
+		for (int i = 0; i < 5; ++i)
+		{
+			cout << i << "= " << m_games[i].getName() << endl<< m_games[i].getDeveloper() <<endl<< m_games[i].getPublisher() << endl << endl;
+		}
+	}
 };
 
 
 int main()
 {
-	const size_t kSize = 6;
+	const size_t kSize = 5;
+	bool finished = false;
+	bool pass = false;
 	
-	Games* Ps5games[kSize];
-	Ps5games[0] = new Games("Game 1", "P 1", "D 1");
-	Ps5games[1] = new Games("Game 2", "P 2", "D 2");
-	Ps5games[2] = new Games("Game 3", "P 3", "D 3");
-	Ps5games[3] = new Games("Game 4", "P 4", "D 4");
-	Ps5games[4] = new Games("Game 5", "P 5", "D 5");
+	Platform platform[]{ Platform("Ps5","Sony"),Platform("Xbox X","Microsoft"),Platform("Nintendo Switch","Switch") };
+		//Playstation games
+		platform[0].setGames("Game 1", "P 1", "D 1",0);
+		platform[0].setGames("Game 2", "P 2", "D 2",1);
+		platform[0].setGames("Game 3", "P 3", "D 3",2);
+		platform[0].setGames("Game 4", "P 4", "D 4",3);
+		platform[0].setGames("Game 5", "P 5", "D 5",4);
+		//Xbox X games
+		platform[1].setGames("Game A1", "P 1", "D 1", 0);
+		platform[1].setGames("Game 2", "P 2", "D 2", 1);
+		platform[1].setGames("Game 3", "P 3", "D 3", 2);
+		platform[1].setGames("Game 4", "P 4", "D 4", 3);
+		platform[1].setGames("Game 5", "P 5", "D 5", 4);
+		//Nintendo Switch games
+		platform[2].setGames("Game B1", "P 1", "D 1", 0);
+		platform[2].setGames("Game 2", "P 2", "D 2", 1);
+		platform[2].setGames("Game 3", "P 3", "D 3", 2);
+		platform[2].setGames("Game 4", "P 4", "D 4", 3);
+		platform[2].setGames("Game 5", "P 5", "D 5", 4);
 
-	cout << "how many achieves" << endl;
-	int s;
-	cin >> s;
-	Ps5games[0]->setAsize(s);
+		//platform[0].displayGames();
 
-	cout << "creating achievements" << endl;
-	Ps5games[0]->imputAchievement();
+		do {
+			int a, size,p;
 
-	cout << "displaying achievements" << endl;
-	Ps5games[0]->dislayAchievementa();
-	
+			cout << "What would you like to do??" << endl;
+			cout << "0=End Program\n1=Display Platforms" << endl;
+			cin >> a;
+			
+			if (a==0)
+			{
+				finished = true;
+			}
 
-		return 0;
+			else if (a == 1)
+			{
+				
+					cout << "Displaying Platforms:" << endl;
+					for (int i = 0; i < 3; ++i)
+					{
+						cout << i << "= Name: " << platform[i].getName() << " by " << platform[i].getManufacturer() << endl << endl;
+					}
+					cout << "3= Exit" << endl;
+					cout << "Choose a Platform to see the games" << endl;
+				do
+				{
+					cin >> p;
+
+					if (p == 0)
+					{
+						platform[p].displayGames();
+						pass = true;
+					}
+					else if (p == 1)
+					{
+						platform[p].displayGames();
+						pass = true;
+					}
+					else if (p == 2)
+					{
+						platform[p].displayGames();
+						pass = true;
+					}
+					else if (p == 3)
+					{
+						pass = true;
+					}
+					else
+					{
+						cout << "Wrong input" << endl << endl;
+					}
+				} while (pass == false);
+				do
+				{
+					pass = false;
+						cout << "0=Exit.\n1=Display Achievements\n2=Create New Achievements" << endl;
+						cin >> a;
+						if (a == 0)
+						{
+							pass = true;
+						}
+						else if (a == 1)
+						{
+							cout << "Choose Game" << endl;
+							cin >> a;
+							platform[p].m_games[a].dislayAchievement();
+						}
+						else if (a == 2)
+						{
+							cout << "Choose Game" << endl;
+							cin >> a;
+							cout << "How many achievements you would like to create?" << endl;
+							cin >> size;
+							platform[p].m_games[a].setAsize(size);
+							platform[p].m_games[a].inputAchievement();
+						}
+						else
+						{
+							cout << "Wrong input" << endl << endl;
+						}
+				}while (pass==false);
+			}
+			
+		} while (finished == false);
 }

@@ -36,9 +36,3 @@ void Character::setWeapon(string wName, string desc, int dmg,int i)
 	m_weapons.setDmg(dmg);
 	m_weapons.setAbilities(i);
 }
-
-//void Character::displayInfo()
-//{
-//	cout << "Name: " << getName() << "\nHP: " << getHealth() << endl;
-//	cout << m_weapons;
-//}

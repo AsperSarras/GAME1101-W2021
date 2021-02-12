@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include "GamingStudents.h"
 #include "Person.h"
 
 
@@ -20,7 +19,6 @@ private:
 	int nHoursArr[8] = { 3,6,9,12,15,18,21,24 };
 
 public:
-	bool show = false;
 	Survey()
 	{
 		

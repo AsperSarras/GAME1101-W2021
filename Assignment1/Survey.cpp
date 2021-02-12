@@ -1,6 +1,6 @@
 ﻿#include "Survey.h"
 #include <iostream>
-
+#include "GamingStudents.h"
 #include "NotGamers.h"
 
 void Survey::SurveyProcess(int q)
@@ -20,7 +20,6 @@ void Survey::SurveyProcess(int q)
 	int str1 = 0;
 	int str2 = 0;
 	int str3 = 0;
-	int strF = 0;
 
 	for (int i = 0; i < q; i++)
 	{
@@ -54,11 +53,6 @@ void Survey::SurveyProcess(int q)
 			gArry[i] = new GamingStudents(devArr[d], hoursArr[h], namesArr[n], lNamesArr[ln],
 				agesArr[a], collArr[c], progArr[p], semArr[s]);
 
-			if(show==true)
-			{
-				gArry[i]->displayInfo();
-			}
-
 			gamersAgeSum += gArry[i]->getAge();
 			gamersHoursSum += hoursArr[h];
 			gamersAmount++;
@@ -89,11 +83,6 @@ void Survey::SurveyProcess(int q)
 
 			gArry[i] = new NotGamers(sDevArr[sd], nHoursArr[nh], namesArr[n], lNamesArr[ln],
 				agesArr[a], collArr[c], progArr[p], semArr[s]);
-
-			if (show==true)
-			{
-				gArry[i]->displayInfo();
-			}
 
 			nonGamersAgeSum += gArry[i]->getAge();
 			nonGamersHoursSum += nHoursArr[nh];

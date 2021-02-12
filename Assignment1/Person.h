@@ -10,7 +10,6 @@ private:
 	string m_lName;
 	int m_age;
 public:
-	int n;
 	Person()
 	{
 		m_name = "";

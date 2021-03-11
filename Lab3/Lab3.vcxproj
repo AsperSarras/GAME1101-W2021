@@ -140,11 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Main2.cpp" />
+    <ClCompile Include="SearchVect.cpp" />
+    <ClCompile Include="SimpleVector.cpp" />
+    <ClCompile Include="SortableVector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SearchVect.h" />
     <ClInclude Include="SimpleVector.h" />
+    <ClInclude Include="SortableVector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

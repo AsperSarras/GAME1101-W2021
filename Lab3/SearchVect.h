@@ -83,4 +83,3 @@ SearchableVector<T>::SearchableVector(SearchableVector& obj) :SimpleVector<T>(ob
 //		return -1;
 //	}
 //}
-

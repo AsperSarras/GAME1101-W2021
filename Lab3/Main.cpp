@@ -12,7 +12,7 @@ int main()
 {
 	const int SIZE = 10;
 
-	SearchableVector<int> iTable(SIZE);
+	SimpleVector<int> iTable(SIZE);
 	SearchableVector<double>dTableSearch(SIZE);
 	SortableVector<double>dTableSort(SIZE);
 	int r;

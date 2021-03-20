@@ -8,7 +8,7 @@ int Reverse(string normal,int posI, int posF, int times);
 
 void Swap(int* a, int* b);
 int Partition(int arr[], int posI, int posF);
-void QuickSort(int arr[], int posI, int posF,int aSize);
+void QuickSort(int arr[], int posI, int posF);
 
 
 int main()
@@ -58,7 +58,7 @@ int main()
 				array[i] = rand();
 				cout << array[i] << endl;
 			}
-			QuickSort(array, 0, aSize,aSize);
+			QuickSort(array, 0, aSize);
 			cout << "Array after the sort: " << endl;
 			for (int i = 0; i < aSize; i++)
 			{
@@ -139,13 +139,13 @@ int Partition(int arr[], int posI, int posF)
 	Swap(&arr[init + 1], &arr[posF]);
 	return (init + 1);
 }
-void QuickSort(int arr[], int posI, int posF,int aSize)
+void QuickSort(int arr[], int posI, int posF)
 {
 	if(posI<posF)
 	{
 		int p = Partition(arr, posI, posF);
 
-		QuickSort(arr, posI, p - 1,aSize);
-		QuickSort(arr, p + 1, posF,aSize);
+		QuickSort(arr, posI, p - 1);
+		QuickSort(arr, p + 1, posF);
 	}
 }

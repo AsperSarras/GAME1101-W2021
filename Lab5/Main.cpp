@@ -58,37 +58,52 @@ int main()
 	Person catchQueuePerson;
 
 	//QUEUE
-	//Example with Classes
-	PushQueue(cQueue, Daniel);
-	PushQueue(cQueue, Camila);
-	PopQueue(cQueue, catchQueuePerson);
-	PopQueue(cQueue, catchQueuePerson);
+
 	
 	
 	//Example with Int
+	cout << "Queue Example with Int" << endl;
 	cout << "Enqueu 10 items...\n";
 	for (int i = 1; i <= 10; i++)
 	{
-		iQueue.enqueue(i * i);
+		int v = i * i;
+		iQueue.enqueue(v);
+		cout << v << " added to the queue!" << endl;
 	}
-
+	cout << "Removing 10 items from queue...\n";
 	while (!iQueue.isEmpty())
 	{
 		int value;
 		iQueue.dequeue(value);
-		cout << value << " ";
+		cout << value << " removed from the queue!" << endl;
 	}
+	cout << endl;
 	
+	//Example with Classes
+	cout << "Queue Example with classes" << endl;
+	PushQueue(cQueue, Daniel);
+	PushQueue(cQueue, Camila);
+	PopQueue(cQueue, catchQueuePerson);
+	PushQueue(cQueue, Sofia);
+	PushQueue(cQueue, Benjamin);
+	PopQueue(cQueue, catchQueuePerson);
+	PopQueue(cQueue, catchQueuePerson);
+	PushQueue(cQueue, James);
+	PopQueue(cQueue, catchQueuePerson);
+	PopQueue(cQueue, catchQueuePerson);
+	cout << endl << endl;
 	//STACKS
 	//Example with Int
+	cout << "Example of Stack with Int" << endl;
+	cout << "Pushing 10 items into the Stack" << endl;
+
 	for(int i =5;i<=50;i= i+5)
 	{
 		cout << "Push: " << i << endl;
 		stack.push(i);
 	}
 	
-	cout << endl;
-
+	cout << "Removing 10 items from the Stack" << endl;
 	for (int i=1;i<=10;i++)
 	{
 		cout << "Pop ";
@@ -99,6 +114,7 @@ int main()
 	cout << endl;
 
 	//Example with Classes
+	cout << "Example of Stack with Classes" << endl;
 	PushStack(stack3, Diego);
 	PushStack(stack3, Camila);
 	PushStack(stack3, Benjamin);
@@ -117,22 +133,22 @@ int main()
 void PushStack(DynTempStack<Person> &s, Person p)
 {
 	s.push(p);
-	cout << p.getName() << " entered the store!" << endl;
+	cout << p.getName() << " entered the Stack!" << endl;
 	//Display Current Stack
-	
+
 }
 
 void PopStack(DynTempStack<Person> &s, Person p)
 {
 	p = s.pop();
-	cout << p.getName() << " exited the store!" << endl;
+	cout << p.getName() << " exited the Stack!" << endl;
 	//Display Current Stack
 }
 
 void PushQueue(DynTempQueue<Person>& s, Person p)
 {
 	s.enqueue(p);
-	cout << p.getName() << " entered the store!" << endl;
+	cout << p.getName() << " entered the Queue!" << endl;
 	//Display Current Stack
 
 }
@@ -140,7 +156,7 @@ void PushQueue(DynTempQueue<Person>& s, Person p)
 void PopQueue(DynTempQueue<Person>& s, Person p)
 {
 	p = s.dequeue();
-	cout << p.getName() << " exited the store!" << endl;
+	cout << p.getName() << " Left the Queue!" << endl;
 	//Display Current Stack
 }
 

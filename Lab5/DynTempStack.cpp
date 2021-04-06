@@ -4,12 +4,14 @@
 #include <cstdlib>
 using namespace std;
 
-void DynTempStack::push(int num)
+template <class T>
+void DynTempStack<T>::push(T num)
 {
 	top = new StackNode(num, top);
 }
 
-void DynTempStack::pop(int& num)
+template <class T>
+void DynTempStack<T>::pop(T& num)
 {
 	StackNode* temp;
 
@@ -30,7 +32,31 @@ void DynTempStack::pop(int& num)
 	}
 }
 
-bool DynTempStack::isEmpty() const
+template<class T>
+T DynTempStack<T>::pop()
+{
+	if(tempp!=nullptr)
+	{
+		tempp = nullptr;
+	}
+
+	if (isEmpty())
+	{
+		cout << "The Stack is Empty.\n";
+		exit(1);
+	}
+	else
+	{
+		//Worry about deleting the item
+		tempp = top;
+		top = top->next;
+		return tempp->value;
+	}
+	
+}
+
+template <class T>
+bool DynTempStack<T>::isEmpty() const
 {
 	if (!top)// if top is not pointing to something
 	{

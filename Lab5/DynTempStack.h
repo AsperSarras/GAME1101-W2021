@@ -1,16 +1,17 @@
 #pragma once
 
+template<class T>
 class DynTempStack
 {
 private:
 	class StackNode
 	{
 		friend class DynTempStack;
-		int value;
+		T value;
 		StackNode* next;
 
 		//Const
-		StackNode(int value1, StackNode* next1 = nullptr)
+		StackNode(T value1, StackNode* next1 = nullptr)
 		{
 			value = value1;
 			next = next1;
@@ -18,12 +19,14 @@ private:
 	};
 
 	StackNode* top;
+	StackNode* tempp;
 public:
 	DynTempStack()
 	{
 		top = nullptr;
 	}
-	void push(int);
-	void pop(int&);
+	void push(T);
+	void pop(T&);
+	T pop();
 	bool isEmpty() const;
 };

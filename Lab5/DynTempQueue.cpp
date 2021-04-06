@@ -3,18 +3,21 @@
 #include<cstdlib>
 using namespace std;
 
-DynTempQueue::DynTempQueue()
+template <class T>
+DynTempQueue<T>::DynTempQueue()
 {
 	front = nullptr;
 	rear = nullptr;
 }
 
-DynTempQueue::~DynTempQueue()
+template <class T>
+DynTempQueue<T>::~DynTempQueue()
 {
 	clear();
 }
 
-void DynTempQueue::enqueue(int num)
+template <class T>
+void DynTempQueue<T>::enqueue(T num)
 {
 	if (isEmpty())
 	{
@@ -28,7 +31,8 @@ void DynTempQueue::enqueue(int num)
 	}
 }
 
-void DynTempQueue::dequeue(int& num)
+template <class T>
+void DynTempQueue<T>::dequeue(T& num)
 {
 	QueueNode* temp;
 	if (isEmpty())
@@ -46,7 +50,30 @@ void DynTempQueue::dequeue(int& num)
 	}
 }
 
-bool DynTempQueue::isEmpty() const
+template <class T>
+T DynTempQueue<T>::dequeue()
+{
+	if (tempp != nullptr)
+	{
+		tempp = nullptr;
+	}
+
+	if (isEmpty())
+	{
+		cout << "The Stack is Empty.\n";
+		exit(1);
+	}
+	else
+	{
+		//Worry about deleting the item
+		tempp = front;
+		front = front->next;
+		return tempp->value;
+	}
+}
+
+template <class T>
+bool DynTempQueue<T>::isEmpty() const
 {
 	if (front == nullptr)
 	{
@@ -58,9 +85,10 @@ bool DynTempQueue::isEmpty() const
 	}
 }
 
-void DynTempQueue::clear()
+template <class T>
+void DynTempQueue<T>::clear()
 {
-	int value; //Dummy Variable;
+	T value; //Dummy Variable;
 	while (!isEmpty())
 	{
 		dequeue(value);

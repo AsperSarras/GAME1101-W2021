@@ -52,7 +52,6 @@ T DynTempStack<T>::pop()
 		top = top->next;
 		return tempp->value;
 	}
-	
 }
 
 template <class T>

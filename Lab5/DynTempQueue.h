@@ -20,6 +20,7 @@ private:
 	QueueNode* front;
 	QueueNode* rear;
 	QueueNode* tempp;
+	QueueNode* tempp2;
 public:
 	//Const/Destr
 	DynTempQueue();
@@ -28,6 +29,7 @@ public:
 	void enqueue(T);
 	void dequeue(T&);
 	T dequeue();
+	T Call();
 	bool isEmpty()const;
 	void clear();
 };

@@ -55,6 +55,32 @@ T DynTempStack<T>::pop()
 }
 
 template <class T>
+T DynTempStack<T>::Call()
+{
+	if (tempp != nullptr)
+	{
+		tempp = nullptr;
+	}
+	if (tempp2 == nullptr)
+	{
+		tempp2 = top;
+	}
+
+	if (isEmpty())
+	{
+		cout << "The Stack is Empty.\n";
+		exit(1);
+	}
+	else
+	{
+		//Worry about deleting the item
+		tempp = tempp2;
+		tempp2 = tempp2->next;
+		return tempp->value;
+	}
+}
+
+template <class T>
 bool DynTempStack<T>::isEmpty() const
 {
 	if (!top)// if top is not pointing to something

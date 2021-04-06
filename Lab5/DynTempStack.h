@@ -20,6 +20,7 @@ private:
 
 	StackNode* top;
 	StackNode* tempp;
+	StackNode* tempp2;
 public:
 	DynTempStack()
 	{
@@ -28,5 +29,6 @@ public:
 	void push(T);
 	void pop(T&);
 	T pop();
+	T Call();
 	bool isEmpty() const;
 };

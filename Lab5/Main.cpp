@@ -25,9 +25,11 @@ public:
 
 void PushStack(DynTempStack<Person> &s, Person p);
 void PopStack(DynTempStack<Person> &s, Person p);
+void CallStack(DynTempStack<Person>& s, Person p, int size);
 
 void PushQueue(DynTempQueue<Person>& s, Person p);
 void PopQueue(DynTempQueue<Person>& s, Person p);
+void CallQueue(DynTempQueue<Person>& s,Person p, int size);
 
 int main()
 {
@@ -48,6 +50,9 @@ int main()
 	Daniel.setName("Daniel");
 	Person Rachel;
 	Rachel.setName("Rachel");
+
+	int StackLenght = 0;
+	int QueueLenght = 0;
 	
 	DynTempStack<int> stack;
 	DynTempStack<Person> stack3;
@@ -57,10 +62,7 @@ int main()
 	Person catchStackPerson;
 	Person catchQueuePerson;
 
-	//QUEUE
-
-	
-	
+	////QUEUE
 	//Example with Int
 	cout << "Queue Example with Int" << endl;
 	cout << "Enqueu 10 items...\n";
@@ -82,15 +84,35 @@ int main()
 	//Example with Classes
 	cout << "Queue Example with classes" << endl;
 	PushQueue(cQueue, Daniel);
+	QueueLenght++;
+	CallQueue(cQueue,catchQueuePerson,QueueLenght);
 	PushQueue(cQueue, Camila);
+	QueueLenght++;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PopQueue(cQueue, catchQueuePerson);
+	QueueLenght--;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PushQueue(cQueue, Sofia);
+	QueueLenght++;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PushQueue(cQueue, Benjamin);
+	QueueLenght++;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PopQueue(cQueue, catchQueuePerson);
+	QueueLenght--;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PopQueue(cQueue, catchQueuePerson);
+	QueueLenght--;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PushQueue(cQueue, James);
+	QueueLenght++;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PopQueue(cQueue, catchQueuePerson);
+	QueueLenght--;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	PopQueue(cQueue, catchQueuePerson);
+	QueueLenght--;
+	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	cout << endl << endl;
 	//STACKS
 	//Example with Int
@@ -112,19 +134,38 @@ int main()
 	}
 
 	cout << endl;
-
 	//Example with Classes
 	cout << "Example of Stack with Classes" << endl;
 	PushStack(stack3, Diego);
+	StackLenght++;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PushStack(stack3, Camila);
+	StackLenght++;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PushStack(stack3, Benjamin);
+	StackLenght++;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PopStack(stack3, catchStackPerson);
+	StackLenght--;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PopStack(stack3, catchStackPerson);
+	StackLenght--;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PushStack(stack3, Sofia);
+	StackLenght++;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PopStack(stack3, catchStackPerson);
+	StackLenght--;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PopStack(stack3, catchStackPerson);
+	StackLenght--;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PushStack(stack3, Daniel);
+	StackLenght++;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	PopStack(stack3, catchStackPerson);
+	StackLenght--;
+	CallStack(stack3, catchStackPerson, StackLenght);
 	cout << endl;
 	
 	return 0;
@@ -145,6 +186,18 @@ void PopStack(DynTempStack<Person> &s, Person p)
 	//Display Current Stack
 }
 
+void CallStack(DynTempStack<Person>& s, Person p, int size)
+{
+	cout << "Current Stack:" << endl;
+	for (int i = 0; i < size; i++)
+	{
+		p = s.Call();
+		cout << p.getName() << " ";
+	}
+	cout << "\nEnd of the Stack." << endl;
+}
+
+
 void PushQueue(DynTempQueue<Person>& s, Person p)
 {
 	s.enqueue(p);
@@ -160,3 +213,13 @@ void PopQueue(DynTempQueue<Person>& s, Person p)
 	//Display Current Stack
 }
 
+void CallQueue(DynTempQueue<Person>& s,Person p, int size)
+{
+	cout << "Current Queue:" << endl;
+	for (int i = 0; i < size; i++)
+	{
+		p = s.Call();
+		cout << p.getName() <<" ";
+	}
+	cout << "\nEnd of the queue." << endl;
+}

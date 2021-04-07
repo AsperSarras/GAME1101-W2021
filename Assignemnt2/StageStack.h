@@ -6,7 +6,8 @@ class StageStack
 private:
 	class StackNode
 	{
-		friend class DynTempStack;
+		/*friend class DynTempStack;*/
+	public:
 		T value;
 		StackNode* next;
 
@@ -18,7 +19,7 @@ private:
 		}
 	};
 
-	StackNode* top;
+	//StackNode* top;
 	StackNode* tempp;
 	StackNode* tempp2;
 public:
@@ -31,4 +32,6 @@ public:
 	T pop();
 	T Call();
 	bool isEmpty() const;
+
+	StackNode* top;
 };

@@ -1,4 +1,11 @@
 #include "Stage.h"
+#include<iostream>
+using namespace std;
+
+Stage::Stage(string stage)
+{
+	m_stage = stage;
+}
 
 void Stage::setCurrentPos(string pos)
 {
@@ -10,14 +17,9 @@ string Stage::getCurrentPos()
 	return m_CurrentPos;
 }
 
-string Stage::getTopCenter()
+string Stage::getCurrentStage()
 {
-	return m_TopCenter;
-}
-
-string Stage::getBotCenter()
-{
-	return m_BotCenter;
+	return m_stage;
 }
 
 void Stage::Move(int i)
@@ -72,5 +74,17 @@ void Stage::Move(int i)
 	{
 		if (i == 1) { setCurrentPos(m_MidRight); }
 		else if (i == 2) { setCurrentPos(m_TopCenter); }
+	}
+}
+
+void Stage::Interact()
+{
+	if (m_stage == "Stage1")
+	{
+		cout << "Hello Happy World\n";
+	}
+	else if (m_stage=="Stage2")
+	{
+		cout << "Good Bye Happy World\n";
 	}
 }

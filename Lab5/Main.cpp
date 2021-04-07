@@ -80,7 +80,8 @@ int main()
 		cout << value << " removed from the queue!" << endl;
 	}
 	cout << endl;
-	
+	system("PAUSE"); //Makes user need to input a button in order to continue
+	system("CLS");	//Clears the console
 	//Example with Classes
 	cout << "Queue Example with classes" << endl;
 	PushQueue(cQueue, Daniel);
@@ -114,6 +115,8 @@ int main()
 	QueueLenght--;
 	CallQueue(cQueue, catchQueuePerson, QueueLenght);
 	cout << endl << endl;
+	system("PAUSE"); //Makes user need to input a button in order to continue
+	system("CLS");	//Clears the console
 	//STACKS
 	//Example with Int
 	cout << "Example of Stack with Int" << endl;
@@ -134,6 +137,8 @@ int main()
 	}
 
 	cout << endl;
+	system("PAUSE"); //Makes user need to input a button in order to continue
+	system("CLS");	//Clears the console
 	//Example with Classes
 	cout << "Example of Stack with Classes" << endl;
 	PushStack(stack3, Diego);
@@ -174,7 +179,7 @@ int main()
 void PushStack(DynTempStack<Person> &s, Person p)
 {
 	s.push(p);
-	cout << p.getName() << " entered the Stack!" << endl;
+	cout << endl << p.getName() << " entered the Stack!" << endl;
 	//Display Current Stack
 
 }
@@ -182,7 +187,7 @@ void PushStack(DynTempStack<Person> &s, Person p)
 void PopStack(DynTempStack<Person> &s, Person p)
 {
 	p = s.pop();
-	cout << p.getName() << " exited the Stack!" << endl;
+	cout <<endl<< p.getName() << " exited the Stack!" <<endl << endl;
 	//Display Current Stack
 }
 
@@ -201,7 +206,7 @@ void CallStack(DynTempStack<Person>& s, Person p, int size)
 void PushQueue(DynTempQueue<Person>& s, Person p)
 {
 	s.enqueue(p);
-	cout << p.getName() << " entered the Queue!" << endl;
+	cout <<endl<< p.getName() << " entered the Queue!"<< endl;
 	//Display Current Stack
 
 }
@@ -209,7 +214,7 @@ void PushQueue(DynTempQueue<Person>& s, Person p)
 void PopQueue(DynTempQueue<Person>& s, Person p)
 {
 	p = s.dequeue();
-	cout << p.getName() << " Left the Queue!" << endl;
+	cout << endl << p.getName() << " Left the Queue!" << endl;
 	//Display Current Stack
 }
 

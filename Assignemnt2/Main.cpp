@@ -1,4 +1,8 @@
 #include <iostream>
+
+
+#include "Enemies.h"
+#include "PlayerChara.h"
 #include"StageStack.h"
 #include"StageStack.cpp"
 #include"Stage.h"
@@ -6,12 +10,18 @@ using namespace std;
 
 int main()
 {
+	PlayerChara Player(100, 1, 1);
+	Enemies Aquiles("Aquiles", 100, 20, 10);//TODO BALANCE
+	Enemies Medusa("Medusa", 200, 999, 20);
+	Enemies Hercules("Hercules", 300, 30, 999);
+	Enemies Zeus("Zeus", 999, 999, 999);
+	
 	StageStack<Stage>StageStack;
 	Stage CurrentStage;
-	Stage stage1("Stage1");
-	Stage stage2("Stage2");
-	Stage stage3("Stage3");
-	Stage stage4("Stage4");
+	Stage stage1("Stage1",Aquiles.getName());
+	Stage stage2("Stage2",Medusa.getName());
+	Stage stage3("Stage3",Hercules.getName());
+	Stage stage4("Stage4",Zeus.getName());
 	
 	StageStack.push(stage1);
 
@@ -25,6 +35,7 @@ int main()
 	bool stage4DoorOpened = false;
 	bool Goal = false;
 	int choices;
+	int booringCount = 0;
 
 	CurrentStage = StageStack.top->value;
 	CurrentStage.setCurrentPos("Bottom Center");
@@ -48,7 +59,7 @@ int main()
 			{
 				if (!stage1DoorOpened)
 				{
-					cout << "3=Open Door" << endl;
+					cout << "3=Try Door (Inspect to read the Question)" << endl;
 					choices = 3;
 				}
 				else if (stage1DoorOpened&&!stage1BossDefeated)
@@ -66,7 +77,7 @@ int main()
 			{
 				if (!stage2DoorOpened)
 				{
-					cout << "3=Open Door" << endl;
+					cout << "3=Try Door (Inspect to read the Question)" << endl;
 					choices = 3;
 				}
 				else if (stage2DoorOpened && !stage2BossDefeated)
@@ -84,7 +95,7 @@ int main()
 			{
 				if (!stage3DoorOpened)
 				{
-					cout << "3=Open Door" << endl;
+					cout << "3=Try Door (Inspect to read the Question)" << endl;
 					choices = 3;
 				}
 				else if (stage3DoorOpened && !stage3BossDefeated)
@@ -102,7 +113,7 @@ int main()
 			{
 				if (!stage4DoorOpened)
 				{
-					cout << "3=Open Door" << endl;
+					cout << "3=Try Door (Inspect to read the Question)" << endl;
 					choices = 3;
 				}
 				else if (stage4DoorOpened && !stage4BossDefeated)
@@ -215,18 +226,28 @@ int main()
 		{
 			if(CurrentStage.getCurrentPos()== "Middle Center")
 			{
-				//Heal
-				cout << "Heal" << endl;
+				Player.setHealth(100);
+				cout << "I feel in top condition!" << endl;
 			}
 			else if (CurrentStage.getCurrentPos() == "Top Center")
 			{
+				string questionAnsw;
 				if(CurrentStage.getCurrentStage()=="Stage1")
 				{
 					if(!stage1DoorOpened)
 					{
 						//Riddle
 						cout << "Riddle" << endl;
-						stage1DoorOpened = true;
+						cin >> questionAnsw;
+						if(questionAnsw==CurrentStage.getAnsw())
+						{
+							cout << "The Door Opened!" << endl;
+							stage1DoorOpened = true;
+						}
+						else
+						{
+							cout << "Nothing Happened" << endl;
+						}
 					}
 					else if(stage1DoorOpened&&!stage1BossDefeated)
 					{
@@ -247,7 +268,16 @@ int main()
 					{
 						//Riddle
 						cout << "Riddle" << endl;
-						stage2DoorOpened = true;
+						cin >> questionAnsw;
+						if (questionAnsw == CurrentStage.getAnsw())
+						{
+							cout << "The Door Opened!" << endl;
+							stage2DoorOpened = true;
+						}
+						else
+						{
+							cout << "Nothing Happened" << endl;
+						}
 					}
 					else if (stage2DoorOpened && !stage2BossDefeated)
 					{
@@ -268,7 +298,16 @@ int main()
 					{
 						//Riddle
 						cout << "Riddle" << endl;
-						stage3DoorOpened = true;
+						cin >> questionAnsw;
+						if (questionAnsw == CurrentStage.getAnsw())
+						{
+							cout << "The Door Opened!" << endl;
+							stage3DoorOpened = true;
+						}
+						else
+						{
+							cout << "Nothing Happened" << endl;
+						}
 					}
 					else if (stage3DoorOpened && !stage3BossDefeated)
 					{
@@ -289,7 +328,16 @@ int main()
 					{
 						//Riddle
 						cout << "Riddle" << endl;
-						stage4DoorOpened = true;
+						cin >> questionAnsw;
+						if (questionAnsw == CurrentStage.getAnsw())
+						{
+							cout << "The Door Opened!" << endl;
+							stage4DoorOpened = true;
+						}
+						else
+						{
+							cout << "Nothing Happened" << endl;
+						}
 					}
 					else if (stage4DoorOpened && !stage4BossDefeated)
 					{
@@ -302,8 +350,7 @@ int main()
 						Goal = true;
 					}
 				}
-			}
-			
+			}	
 			else if (CurrentStage.getCurrentPos() == "Bottom Center")
 			{
 				if (CurrentStage.getCurrentStage() != stage1.getCurrentStage())

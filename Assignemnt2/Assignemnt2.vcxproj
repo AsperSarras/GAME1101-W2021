@@ -139,11 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Characters.cpp" />
+    <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PlayerChara.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="StageStack.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Characters.h" />
+    <ClInclude Include="Enemies.h" />
+    <ClInclude Include="PlayerChara.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="StageStack.h" />
   </ItemGroup>

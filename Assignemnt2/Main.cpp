@@ -62,7 +62,60 @@ int main()
 					choices = 3;
 				}
 			}
-
+			else if (CurrentStage.getCurrentStage() == stage2.getCurrentStage())
+			{
+				if (!stage2DoorOpened)
+				{
+					cout << "3=Open Door" << endl;
+					choices = 3;
+				}
+				else if (stage2DoorOpened && !stage2BossDefeated)
+				{
+					cout << "3=Fight Boss" << endl;
+					choices = 3;
+				}
+				else if (stage2BossDefeated)
+				{
+					cout << "3=Next Stage" << endl;
+					choices = 3;
+				}
+			}
+			else if (CurrentStage.getCurrentStage() == stage3.getCurrentStage())
+			{
+				if (!stage3DoorOpened)
+				{
+					cout << "3=Open Door" << endl;
+					choices = 3;
+				}
+				else if (stage3DoorOpened && !stage3BossDefeated)
+				{
+					cout << "3=Fight Boss" << endl;
+					choices = 3;
+				}
+				else if (stage3BossDefeated)
+				{
+					cout << "3=Next Stage" << endl;
+					choices = 3;
+				}
+			}
+			else if (CurrentStage.getCurrentStage() == stage4.getCurrentStage())
+			{
+				if (!stage4DoorOpened)
+				{
+					cout << "3=Open Door" << endl;
+					choices = 3;
+				}
+				else if (stage4DoorOpened && !stage4BossDefeated)
+				{
+					cout << "3=Fight Boss" << endl;
+					choices = 3;
+				}
+				else if (stage4BossDefeated)
+				{
+					cout << "3=Next Stage" << endl;
+					choices = 3;
+				}
+			}
 		}
 		if ((CurrentStage.getCurrentStage() != "Stage1") && (CurrentStage.getCurrentPos() == "Bottom Center"))
 		{
@@ -73,7 +126,7 @@ int main()
 
 		if(answ<0||answ>choices)
 		{
-			cout << "Wrong input";
+			cout << "Wrong input"<<endl;
 		}
 
 		else if(answ==0)
@@ -188,11 +241,72 @@ int main()
 						CurrentStage.setCurrentPos("Bottom Center");
 					}
 				}
+				else if (CurrentStage.getCurrentStage() == "Stage2")
+				{
+					if (!stage2DoorOpened)
+					{
+						//Riddle
+						cout << "Riddle" << endl;
+						stage2DoorOpened = true;
+					}
+					else if (stage2DoorOpened && !stage2BossDefeated)
+					{
+						//Fight
+						cout << "Fight" << endl;
+						stage2BossDefeated = true;
+					}
+					else if (stage2DoorOpened && stage2BossDefeated)
+					{
+						StageStack.push(stage3);
+						CurrentStage = StageStack.top->value;
+						CurrentStage.setCurrentPos("Bottom Center");
+					}
+				}
+				else if (CurrentStage.getCurrentStage() == "Stage3")
+				{
+					if (!stage3DoorOpened)
+					{
+						//Riddle
+						cout << "Riddle" << endl;
+						stage3DoorOpened = true;
+					}
+					else if (stage3DoorOpened && !stage3BossDefeated)
+					{
+						//Fight
+						cout << "Fight" << endl;
+						stage3BossDefeated = true;
+					}
+					else if (stage3DoorOpened && stage3BossDefeated)
+					{
+						StageStack.push(stage4);
+						CurrentStage = StageStack.top->value;
+						CurrentStage.setCurrentPos("Bottom Center");
+					}
+				}
+				else if (CurrentStage.getCurrentStage() == "Stage4")
+				{
+					if (!stage4DoorOpened)
+					{
+						//Riddle
+						cout << "Riddle" << endl;
+						stage4DoorOpened = true;
+					}
+					else if (stage4DoorOpened && !stage4BossDefeated)
+					{
+						//Fight
+						cout << "Fight" << endl;
+						stage4BossDefeated = true;
+					}
+					else if (stage4DoorOpened && stage4BossDefeated)
+					{
+						Goal = true;
+					}
+				}
 			}
 			
 			else if (CurrentStage.getCurrentPos() == "Bottom Center")
 			{
-				if (CurrentStage.getCurrentStage() == "Stage2")
+				if (CurrentStage.getCurrentStage() != stage1.getCurrentStage())
 				{
 					cout << "Go Back" << endl;
 					StageStack.pop();
@@ -201,13 +315,9 @@ int main()
 				}
 			}
 		}
-
-
-		
-		
 	} while (!Goal);
 
-	
+	cout << "Win";
 	
 	return 0;
 }

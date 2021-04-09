@@ -93,7 +93,7 @@ void Stage::Interact()
 				"Inspect the rooms, collect items and solve the door riddle in order to face" << endl <<
 				"a mythological entity, if you manage to overcome the four rooms you will be able" << endl <<
 				"to get back. You can rest back to health on the center of each stage." << endl <<
-				"You have XXXX time. If you run out of time you will be destroyed. Go AMUSE THE GODS!" << endl <<
+				"You have 130 Min. If you run out of time you will be destroyed. Go AMUSE THE GODS!" << endl <<
 				"                                                                              Zeus" << endl;
 		}
 		else
@@ -155,7 +155,7 @@ void Stage::Interact()
 		}
 		else if (m_stage == "Stage3")
 		{
-			cout << "Nothing here...\n\n";
+			cout << "Nothing here...\n";
 		}
 		else if (m_stage == "Stage4")
 		{
@@ -193,7 +193,7 @@ void Stage::Interact()
 		}
 		else if (m_stage == "Stage3")
 		{
-			cout << "The doors says: Hero Name.\n";
+			cout << "The doors says: Roman Hero Name.\n";
 		}
 		else if (m_stage == "Stage4")
 		{
@@ -231,7 +231,7 @@ void Stage::Interact()
 		}
 		else if (m_stage == "Stage3")
 		{
-			cout << "There is a memo that says: Demigod,Demigod,Human,Repeat... What?\n";
+			cout << "Legends said he was human on even turns.. What?\n";
 		}
 		else if (m_stage == "Stage4")
 		{

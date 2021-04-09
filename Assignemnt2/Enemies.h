@@ -18,5 +18,6 @@ public:
 	void Attack() override;
 
 	bool isPetrified = false;
+	bool isFlinched = false;
 	bool isMortal = false;
 };

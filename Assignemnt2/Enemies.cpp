@@ -23,6 +23,7 @@ void Enemies::Die()
 	{
 		cout << "You are boring as hell, not even worth killing... " << endl;
 	}
+	Alive = false;
 }
 
 void Enemies::Attack()

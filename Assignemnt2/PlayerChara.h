@@ -16,4 +16,5 @@ public:
 	bool isUsingMirror = false;
 	bool knowsWeakPoint = false;
 	bool hasMirror = false;
+	bool hasLegendarySword = false;
 };

@@ -10,12 +10,12 @@ using namespace std;
 //	string input;
 //
 //	//Open the file
-//	file.open("wallace.txt", ios::in);
-//	if(file.fail())
-//	{
-//		cout << "File open error!\n";
-//		return 1;
-//	}
+	//file.open("wallace.txt", ios::in);
+	//if(file.fail())
+	//{
+	//	cout << "File open error!\n";
+	//	return 1;
+	//}
 //
 //	//file >> input;
 //	getline(file, input);
